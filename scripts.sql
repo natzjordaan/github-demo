@@ -1,0 +1,1 @@
+select * from mca_tx_staging;
