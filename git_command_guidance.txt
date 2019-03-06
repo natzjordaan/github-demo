@@ -22,3 +22,92 @@ Commit a file: 	git commit -m "Comment history"
 
 Push the change from local to remote GitHub: 	push origin master 
 
+
+
+
+
+$ cat ~/.gitconfig
+
+$ git config --global core.editor "notepad++.exe -multiInst -nosession"
+
+$ git config --global --list
+
+$ git config --global -e
+
+
+Create a git project : git init fresh-project 
+
+Unzip the file: $ unzip ~/Downloads/initializr-verekia-4.0.zip
+
+Create a .git folder: $ git init
+
+Remove the file .git: $ git rm -rf .git 
+
+Move the folder to web-project folder: $ git mv folder web-project 
+
+Create sub folders: $ mkdir -p levl1/level2/level3/level5
+
+Remove the folder : rm -rf level5
+
+Add all folders/files : git add . 
+
+Unstage the file: git reset HEAD <file>
+
+Checkout the change - rollback : git checkout -- <file>
+
+Rename the file within GIT: git mv level3-file.txt level3.txt
+
+Rename the file outside GIT: mv level3-file.txt level3.txt
+
+Move the file to folder: $ git mv level2.txt level3/
+
+History log: git help log
+
+Get list of history logs: git log
+
+Get commit ID history logs: git log --abbrev-commit
+
+Get a simple list of history :  git log --oneline --graph --decorate
+								git log --all --graph --decorate --oneline
+
+Find date range of history : git log --since "3 days ago"
+
+Find the specific change of history: 	git log -- hipster.txt
+										git log --follow -- level1/level2/level3
+										git show 0a17ac82a0b678a5024ab4a65285161ee2890e51
+
+										
+Alias - make it shortcut command: $ git config --global alias.hist "log --all --graph --decorate --oneline"
+								  $ git hist
+								  
+Check the gitconfig: $ cat ~/.gitconfig 
+
+
+Ignore the files: 	create .gitignore file		
+					add a file name to .gitignore
+					git status
+					this file would be excluded in stage 
+					
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
