@@ -15,6 +15,7 @@ File content: 	cat start.txt
 Find a list of file: 	ls
 
 Add a file to staging area: 	git add <file>
+								git add .
 
 Unstage a file: 	git reset HEAD <file>
 
@@ -69,6 +70,7 @@ Get commit ID history logs: git log --abbrev-commit
 
 Get a simple list of history :  git log --oneline --graph --decorate
 								git log --all --graph --decorate --oneline
+								git log --oneline
 
 Find date range of history : git log --since "3 days ago"
 
@@ -87,8 +89,64 @@ Ignore the files: 	create .gitignore file
 					add a file name to .gitignore
 					git status
 					this file would be excluded in stage 
+
+download diff /merge tool from https://www.perforce.com/
 					
-					
+Configuration:  git config --global diff.tool p4merge
+				git config --global diff.tool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+				git config --global difftool.prompt false
+				git config --global --list
+				git config --global -e
+				
+				
+Configuration:  git config --global merge.tool p4merge
+				git config --global merge.tool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+				git config --global mergetool.prompt false
+				git config --global --list
+				git config --global -e
+				
+Compare files:  git diff	
+				git difftool
+				git diff -- <file>
+				git difftool -- <file>
+
+Compare between working directory and Git Repository (Last Commit): git diff HEAD
+																	git difftool HEAD
+																	
+																	
+Compare between the staging area and Git Repository : 	git diff --staged 
+														git diff --staged HEAD
+														
+														
+Compare between commits: 	git diff f021eeb HEAD	
+							git diff HEAD HEAD^
+							git diff dd66d84 eb3a7e0
+							git difftool dd66d84 eb3a7e0
+
+							
+Compare between local and Remote master Repository: git diff master origin/master	
+													git difftool master origin/master
+List of Branch: git branch -a	
+				git branch
+		
+Create a branch: 	git branch mynewbranch
+					git checkout -b <branch name>
+		
+Switch to new branch: git checkout mynewbranch
+
+Rename a branch: git branch -m mynewbranch newbranch
+
+Delete a branch: git branch -d newbranch
+
+Merge a new branch into master: git checkout master
+								git merge <newbranch>
+								git merge <newbranch> --no-ff
+								git merge <newbranch> -m "comment"
+
+Merge conflicts between master and branch: git mergetool
+
+
+		
 
 
 
