@@ -146,9 +146,82 @@ Merge a new branch into master: git checkout master
 Merge conflicts between master and branch: git mergetool
 
 
+Rebasing means the feature branch is not done but master has recent changes. So I need to rebase
+master into the feature branch. It wont overwrite the feature changes.
+
+Rebasing the feature branch into master:  git checkout myfeature
+										  git rebase master 
+										  git commit -am "comment" if any changes in myfeature
+										  git checkout master	
+										  git difftool master myfeature
+										  git merge myfeature 
+										  
+										  
+Rebasing conflicts: git checkout bigtrouble
+					git commit -am "comment" if any changes
+					git checkout master 
+					Make some changes in master which could conflict with bigtrouble branch
+					git commit -am "comment"
+					git rebase master - got conflict error
+					git mergetool 
+					git status
+					git add <file>
+					git rebase --continue
+					git commit -am "comment" if you make new changes in feature branch
+					git checkout master
+					git merge bigtrouble
+
 		
 
+Pull with rebase from GitHub: git fetch origin master
+							  git status
+							  git pull -rebase origin master 
+							  git pull origin master
+							  git push origin master 
+							  
+							  
+Stash means you are not ready to commit, so stash away the commit. Your changes stored in working directory
+and the file will be rollback to the base. 
 
+	In production case - if you need to fix quickly, so stash your changes away and then fix something so it means
+	your changes are stored. 
+	
+Stash: git stash (keep your changes)
+	   - then you fix something quickly : git commit -am "comment"
+	   
+	   now you need to get changes back: git stash apply 
+
+
+Get list of stash : git stash list 
+					git stash drop 
+					
+
+Multiple untracked files in working directory: git stash -u
+											   git stash pop (both apply and drop at same time)
+											   
+Manage mulitple stashes: git stash save "comment"	
+						 git stash list
+		specific stash : git stash show stash@{1}
+						 git stash apply stash@{1}
+						 git stash drop stash@{1}
+						 
+Remove all stashes : git stash clear 
+					 
+Stashing into a branch:  git stash -u					 
+						 git stash branch newchanges
+						 git stash list
+						 git status
+						 git checkout master
+						 git merge newchanges
+						 git branch -d newchanges
+						 
+						 
+
+
+					
+
+		  
+							  
 
 
 
