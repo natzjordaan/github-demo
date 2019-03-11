@@ -180,11 +180,11 @@ Pull with rebase from GitHub: git fetch origin master
 							  git push origin master 
 							  
 							  
-Stash means you are not ready to commit, so stash away the commit. Your changes stored in working directory
+Stash means you are not ready to commit, so stash away the commit. Your temporary changes stored in working directory
 and the file will be rollback to the base. 
 
 	In production case - if you need to fix quickly, so stash your changes away and then fix something so it means
-	your changes are stored. 
+	your temporary changes are stored. 
 	
 Stash: git stash (keep your changes)
 	   - then you fix something quickly : git commit -am "comment"
@@ -218,10 +218,37 @@ Stashing into a branch:  git stash -u
 						 
 
 
-					
+Tag significant events: git tag myTag
+						git log --oneline --decorate --graph -all
+						git tag --list
+						git show myTag
+						git tag --delete myTag
+						
+Annotated Tags: git tag -a v-1.0
+(more info)		git tag --list 
+				git show v-1.0
+				
+Compare tags:  git tag -a v-1.1
+			   change index.html
+			   git commit -am "updating tag 1.1"
+			   git commit --amend 
+			   change - updating tag 1.2
+			   git log --oneline --decorate --graph --all
+			   git diff v-1.0 v-1.1 or git difftool v-1.0 v-1.1
 
 		  
-							  
+Tagging a specific commit: git tag -a v-0.9-beta b073059
+						
+Annotated tag a specific commit : git tag -a v-0.8-alpha 8c0fa5c
+
+Updating existing tags: git tag -a v-0.8-alpha -f (force) 65d8466	 
+- move from commit id to another commit id 
+
+ 
+Using tags with github: git push origin v-0.9-beta
+						git push origin v-1.1
+						
+Push all tages to github: git push origin master --tags
 
 
 
